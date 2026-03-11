@@ -1,11 +1,14 @@
 # Stripe Landing Page Clone
 
 <div align="center">
-  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
-  <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React" />
-  <img src="https://img.shields.io/badge/WebGL-990000?style=for-the-badge&logo=webgl&logoColor=white" alt="WebGL" />
-  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
+  <img src="https://ziadoua.github.io/m3-Markdown-Badges/badges/NextJS/nextjs2.svg" alt="Next.js" />
+  <img src="https://ziadoua.github.io/m3-Markdown-Badges/badges/React/react2.svg" alt="React" />
+  <img src="https://ziadoua.github.io/m3-Markdown-Badges/badges/WebGL/webgl2.svg" alt="WebGL" />
+  <img src="https://ziadoua.github.io/m3-Markdown-Badges/badges/TypeScript/typescript2.svg" alt="TypeScript" />
+  <img src="https://ziadoua.github.io/m3-Markdown-Badges/badges/Sass/sass2.svg" alt="SCSS" />
+  <br>
+  <img src="https://m3-markdown-badges.vercel.app/stars/3/2/ez0000001000000/Stripe-Clone" alt="GitHub Stars" />
+  <img src="https://m3-markdown-badges.vercel.app/issues/3/2/ez0000001000000/Stripe-Clone" alt="GitHub Issues" />
 </div>
 
 ## ✨ Features
