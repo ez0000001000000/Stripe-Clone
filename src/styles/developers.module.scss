@@ -1,0 +1,637 @@
+@use "./mixin.scss" as *;
+
+.developersSection {
+  position: relative;
+  z-index: 2;
+}
+.developersBG {
+  height: 130vh;
+  transform: skewY(-7deg);
+  background-color: $clr-primary;
+  margin-top: -110px;
+
+  @media screen and (max-width: 900px) {
+    height: 120vh;
+  }
+
+  @media screen and (max-width: 600px) {
+    height: 235vh;
+  }
+
+  @media screen and (max-width: 380px) {
+    height: 275vh;
+  }
+}
+
+.lineSection {
+  @include lineSection;
+  z-index: 1;
+  top: 0%;
+
+  .line:first-child {
+    @include line(0);
+    background-image: linear-gradient(#ffffff 33%, rgba(255, 255, 255, 0) 0%);
+  }
+
+  .line:nth-child(2) {
+    @include line(calc(25% + 5px));
+    background-image: linear-gradient(#ffffff 33%, rgba(255, 255, 255, 0) 0%);
+  }
+
+  .line:nth-child(3) {
+    @include line(calc(50% - 1px));
+    background-image: linear-gradient(#ffffff 33%, rgba(255, 255, 255, 0) 0%);
+  }
+
+  .line:nth-child(4) {
+    @include line(calc(75% - 6px));
+    background-image: linear-gradient(#ffffff 33%, rgba(255, 255, 255, 0) 0%);
+  }
+
+  .line:nth-child(5) {
+    @include line(100%);
+    background-image: linear-gradient(#ffffff 33%, rgba(255, 255, 255, 0) 0%);
+  }
+}
+
+.developersContainer {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  margin: 0 17rem;
+  margin-top: -50rem;
+  gap: 2.5rem;
+
+  @media screen and (max-width: 900px) {
+    margin: 0 2rem;
+    margin-top: -75rem;
+  }
+
+  @media screen and (max-width: 600px) {
+    margin-top: -115rem;
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: 400px) {
+    margin-top: -105rem;
+    flex-direction: column;
+  }
+
+  .developersLeftColumn {
+    .heading {
+      color: $clr-tertiary;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .title {
+      color: #fff;
+      font-size: 40px;
+      font-weight: 600;
+      letter-spacing: -2px;
+
+      @media screen and (max-width: 420px) {
+        font-size: 28px;
+      }
+    }
+
+    .text {
+      color: #adbdcc;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 30px;
+      letter-spacing: -1px;
+
+      @media screen and (max-width: 420px) {
+        font-size: 12px;
+        line-height: 20px;
+      }
+    }
+
+    .btn {
+      @include btn($clr-tertiary);
+      width: fit-content;
+      color: $clr-primary;
+
+      &:hover {
+        background-color: #fff;
+      }
+    }
+
+    .btn > .arrow {
+      @include arrow($clr-primary);
+    }
+
+    .extraInfoContainer {
+      display: flex;
+      flex-direction: row;
+      gap: 2.5rem;
+      margin-top: 6.5rem;
+
+      @media screen and (max-width: 900px) {
+        flex-direction: column;
+      }
+
+      .toolsIcon {
+        display: flex;
+        .codeBlockIcon {
+          height: 5vh;
+        }
+
+        .indexMarker {
+          position: absolute;
+          background-color: $clr-primary;
+          margin-top: 1rem;
+          margin-left: 1rem;
+          height: 2px;
+          width: 8px;
+          animation: flicker 1.5s infinite;
+        }
+
+        @keyframes flicker {
+          0% {
+            opacity: 100%;
+          }
+          50% {
+            opacity: 0%;
+          }
+          100% {
+            opacity: 100%;
+          }
+        }
+
+        .gearPurple {
+          position: absolute;
+          height: 4vh;
+          opacity: 0.7;
+          margin-left: 1rem;
+          margin-top: 1rem;
+          animation: spinRight 5s infinite;
+        }
+
+        @keyframes spinRight {
+          0% {
+            transform: rotate(0deg);
+          }
+          5% {
+            transform: rotate(30deg);
+          }
+          100% {
+            transform: rotate(-360deg);
+          }
+        }
+      }
+
+      .integrationsIcon {
+        display: flex;
+        padding-bottom: 2.5rem;
+
+        @media screen and (max-width: 900px) {
+          padding-bottom: 4.5rem;
+        }
+
+        .cubeBlue {
+          position: absolute;
+          height: 5vh;
+          opacity: 0.8;
+          animation: blueMove 8s infinite;
+        }
+
+        @keyframes blueMove {
+          0% {
+            transform: translate(0px, 0px);
+          }
+          40% {
+            transform: translate(0px, 0px);
+          }
+          45% {
+            transform: translate(-5px, -5px);
+            z-index: 0;
+          }
+          50% {
+            transform: translate(11px, 7px);
+            z-index: 1;
+          }
+          90% {
+            transform: translate(11px, 7px);
+            opacity: 80%;
+            z-index: 1;
+          }
+          95% {
+            transform: translate(15px, 12px);
+            opacity: 0%;
+          }
+          96% {
+            transform: translate(-5px, -5px);
+            opacity: 0%;
+            z-index: 0;
+          }
+          100% {
+            transform: translate(0px, 0px);
+            opacity: 80%;
+          }
+        }
+
+        .cubePurple {
+          position: absolute;
+          height: 5vh;
+          opacity: 0.6;
+          margin-left: 0.8rem;
+          margin-top: 0.4rem;
+          animation: purpleMove 8s infinite;
+        }
+        @keyframes purpleMove {
+          0% {
+            transform: translate(0px, 0px);
+          }
+          45% {
+            transform: translate(0px, 0px);
+            opacity: 80%;
+          }
+          50% {
+            transform: translate(5px, 5px);
+            opacity: 0%;
+          }
+          51% {
+            transform: translate(-15px, -8px);
+            opacity: 0%;
+          }
+          55% {
+            transform: translate(-15px, -8px);
+            opacity: 100%;
+          }
+          90% {
+            transform: translate(-15px, -8px);
+          }
+
+          95% {
+            transform: translate(-18px, -10px);
+          }
+          100% {
+            transform: translate(0px, 0px);
+          }
+        }
+      }
+
+      .extraTitle {
+        color: #fff;
+        font-size: 15px;
+        font-weight: 500;
+      }
+
+      .extraText {
+        color: #adbdcc;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 25px;
+      }
+
+      .extraBtn {
+        @include secondaryBtn($clr-tertiary);
+        padding-left: 0;
+
+        &:hover {
+          color: #fff;
+        }
+
+        &:hover > .arrow {
+          color: #fff;
+          border-right: 2px solid #fff;
+          border-bottom: 2px solid #fff;
+        }
+      }
+
+      .extraBtn > .arrow {
+        @include arrow($clr-tertiary);
+      }
+    }
+  }
+
+  .developersRightColumn {
+    display: flex;
+    flex-direction: column;
+    min-width: 530px;
+    margin-right: -1rem;
+    font-family: "Source Code Pro", monospace;
+
+    @media screen and (max-width: 900px) {
+      min-width: 400px;
+      max-width: 400px;
+    }
+    @media screen and (max-width: 400px) {
+      min-width: 100px;
+      max-width: 330px;
+    }
+    .codeBlockTop {
+      background: #0c2e4e;
+      border-radius: 8px;
+      overflow: hidden;
+      padding: 15px 0px;
+      position: relative;
+
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      display: flex;
+      min-height: 360px;
+      // width: 530px;
+      z-index: 1;
+      box-shadow: 0 50px 100px -20px rgba(50, 50, 93, 0.25),
+        0 30px 60px -30px rgba(0, 0, 0, 0.3);
+
+      .lineNumbers {
+        height: auto;
+        display: flex;
+        background-color: var(--cardBackground);
+        position: sticky;
+        font-size: 13px;
+        gap: 0.5rem;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        flex-direction: column;
+        align-items: center;
+        min-width: 38px;
+        text-align: right;
+        color: #55718d;
+        z-index: 1;
+        padding: var(--codeEditorVerticalPadding) 0;
+        min-height: 100%;
+
+        .number {
+          padding: 0 6px;
+        }
+      }
+
+      .typingArea {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        padding: 0 20px;
+
+        .skipLine {
+          margin-bottom: 1.7rem;
+        }
+
+        .codeLine {
+          margin-bottom: 0.3rem;
+          width: fit-content;
+
+          .typedOut {
+            overflow: hidden;
+            border-right: 0.15em solid rgb(255, 255, 255);
+            white-space: nowrap;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            width: 0;
+            opacity: 0%;
+            border-color: transparent;
+
+            .purple {
+              color: #8095ff;
+              margin: 0;
+            }
+
+            .white {
+              color: #fff;
+              margin: 0;
+            }
+
+            .blue {
+              color: #00d4ff;
+              margin: 0;
+            }
+
+            .orange {
+              color: #ffa956;
+              margin: 0;
+            }
+
+            .yellow {
+              color: #ffd96a;
+              margin: 0;
+            }
+          }
+        }
+
+        .lineOne {
+          animation: typing 4s steps(60, end) forwards, blinking 0.75s infinite;
+          animation-delay: 0s;
+        }
+
+        .lineTwo {
+          animation: typing 3s steps(50, end) forwards, blinking 0.75s 4;
+          animation-delay: 4s;
+        }
+        .lineThree {
+          animation: typing 3s steps(20, end) forwards, blinking 0.75s 4;
+          animation-delay: 7s;
+        }
+        .lineFour {
+          animation: typing 2s steps(20, end) forwards, blinking 0.75s 3;
+          animation-delay: 10s;
+        }
+        .lineFive {
+          animation: typing 1s steps(10, end) forwards, blinking 0.75s 2;
+          animation-delay: 12s;
+        }
+
+        @keyframes typing {
+          from {
+            width: 0;
+          }
+          to {
+            width: 100%;
+          }
+          1% {
+            opacity: 100%;
+          }
+          100% {
+            opacity: 100%;
+          }
+        }
+        @keyframes blinking {
+          from {
+            border-color: transparent;
+          }
+          to {
+            border-color: rgb(255, 255, 255);
+          }
+        }
+        @keyframes hideCursor {
+          0% {
+            opacity: 0%;
+          }
+          99% {
+            opacity: 0%;
+          }
+          100% {
+            opacity: 100%;
+          }
+        }
+      }
+    }
+    .codeBlockMiddle {
+      background: $clr-primary;
+      height: 25px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      z-index: 1;
+
+      .statusLeft {
+        display: flex;
+        align-items: center;
+        .editingStatus {
+          background-color: #8095ff;
+          color: #06182c;
+          padding: 0 5px 0 8px;
+          margin: 0 9px 0 0;
+          position: relative;
+          letter-spacing: -2px;
+          font-weight: 600;
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            transform: translateX(100%);
+            width: 0;
+            height: 0;
+            border-left: 9px solid #8095ff;
+            border-bottom: calc(19px / 2) solid transparent;
+            border-right: 0 solid transparent;
+            border-top: calc(19px / 2) solid transparent;
+          }
+        }
+
+        .serverStatus {
+          margin: 0 0 0 10px;
+          color: #8095ff;
+        }
+      }
+
+      .statusRight {
+        display: flex;
+        align-items: stretch;
+        color: #55718d;
+
+        .percentage {
+          padding: 0 8px 0 0;
+        }
+
+        .lineIcon {
+          padding: 0 16px 0 0;
+        }
+
+        .lineProgress {
+          padding: 0 8px 0 0;
+        }
+
+        .lineIndicator {
+          padding: 0 8px 0 0;
+        }
+
+        .currentLineNo {
+          padding: 0 8px 0 0;
+        }
+      }
+    }
+    .codeBlockBottom {
+      position: relative;
+      z-index: 1;
+      height: 296px;
+      border-radius: 8px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border: 1px solid #0f395e;
+      background-color: #06182c;
+      color: #fff;
+      padding: 16px 0;
+
+      .terminalArea {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        padding: 0 20px;
+
+        .terminalLine {
+          display: inline-flex;
+          margin-bottom: 0.3rem;
+          width: fit-content;
+          align-items: center;
+
+          p {
+            margin: 0;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            @media screen and (max-width: 900px) {
+              font-size: 9px;
+            }
+          }
+
+          .gray {
+            color: #55718d;
+            margin: 0;
+          }
+
+          .blue {
+            color: #00d4ff;
+          }
+
+          .typedOut {
+            overflow: hidden;
+            border-right: 0.15em solid rgb(255, 255, 255);
+            white-space: nowrap;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            animation: typing 2s steps(40, end) forwards,
+              blinking 0.75s infinite;
+            animation-delay: 14s;
+            width: 0;
+
+            .white {
+              color: #fff;
+              margin: 0;
+            }
+
+            .purple {
+              color: #8095ff;
+              margin: 0;
+            }
+          }
+        }
+
+        .appearFirst {
+          animation: appear 17s;
+        }
+        .appearSecond {
+          animation: appear 17.5s;
+        }
+        .appearThird {
+          animation: appear 18s;
+        }
+        .appearFourth {
+          animation: appear 18.5s;
+        }
+
+        @keyframes appear {
+          0% {
+            opacity: 0;
+          }
+          99% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+}

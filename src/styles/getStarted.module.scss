@@ -1,0 +1,367 @@
+@use "./mixin.scss" as *;
+
+.getStartedContainer {
+  margin: 8rem 17rem;
+  // display: grid;
+  // grid-template-columns: 2fr repeat(1, 1fr);
+  display: flex;
+
+  @media screen and (max-width: 900px) {
+    margin: 5rem 2rem;
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: 600px) {
+    margin: 5rem 1rem;
+    flex-direction: column;
+  }
+
+  .mainColumn {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    padding-bottom: 2rem;
+
+    @media screen and (max-width: 900px) {
+      width: -webkit-fill-available;
+    }
+
+    .title {
+      color: $clr-primary;
+      font-size: 27px;
+      font-weight: 500;
+      letter-spacing: -2px;
+    }
+
+    .mainText {
+      font-size: 18px;
+      font-weight: 500;
+      color: #425466;
+      line-height: 30px;
+      letter-spacing: -1px;
+
+      @media screen and (max-width: 600px) {
+        font-size: 16px;
+      }
+
+      a {
+        color: $clr-secondary;
+        font-weight: 600;
+        transition: 0.2s;
+
+        &:hover {
+          color: $clr-primary;
+          transition: 0.2s;
+        }
+      }
+    }
+
+    .buttonContainer {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      .startBtn {
+        @include btn($clr-secondary);
+        width: fit-content;
+
+        &:hover {
+          background-color: $clr-primary;
+          color: #fff;
+        }
+      }
+
+      .startBtn > .arrow {
+        @include arrow(#fff);
+      }
+    }
+  }
+
+  .detailsContainer {
+    display: flex;
+    gap: 1rem;
+    margin-left: 2rem;
+
+    @media screen and (max-width: 900px) {
+      padding-bottom: 5rem;
+    }
+
+    @media screen and (max-width: 600px) {
+      flex-direction: column;
+      margin-left: 0;
+    }
+
+    .detailColumn {
+      display: flex;
+      flex-direction: column;
+      margin-left: 1rem;
+
+      .priceTagIcon {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        .priceTagBack {
+          height: 5vh;
+          transform-origin: top;
+          transform: rotate(35deg);
+          animation: swing 3s infinite;
+          @media screen and (max-width: 900px) {
+            height: 3vh;
+          }
+          @media screen and (max-width: 600px) {
+            height: 5vh;
+          }
+        }
+
+        .priceTagFront {
+          height: 5vh;
+          opacity: 0.8;
+          position: absolute;
+          @media screen and (max-width: 900px) {
+            height: 3vh;
+          }
+          @media screen and (max-width: 600px) {
+            height: 5vh;
+          }
+        }
+
+        @keyframes swing {
+          50% {
+            transform: rotate(-35deg);
+          }
+          100% {
+            transform: rotate(35deg);
+          }
+        }
+      }
+
+      .integrationIcon {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        .integrationBack {
+          height: 5vh;
+          @media screen and (max-width: 900px) {
+            height: 3vh;
+          }
+          @media screen and (max-width: 600px) {
+            height: 5vh;
+          }
+        }
+
+        .integrationFront {
+          height: 5vh;
+          opacity: 0.8;
+          position: absolute;
+          transform: translate(-5px, -5px);
+          animation: move 10s infinite;
+
+          @media screen and (max-width: 900px) {
+            height: 3vh;
+          }
+          @media screen and (max-width: 600px) {
+            height: 5vh;
+          }
+        }
+
+        .integrationBrackets {
+          height: 5vh;
+          position: absolute;
+          transform: translate(-5px, -5px);
+          animation: fadeMove 10s infinite;
+          @media screen and (max-width: 900px) {
+            height: 3vh;
+          }
+          @media screen and (max-width: 600px) {
+            height: 5vh;
+          }
+        }
+
+        @keyframes move {
+          0% {
+            transform: translate(-5px, -5px);
+          }
+          40% {
+            transform: translate(-5px, -5px);
+          }
+          45% {
+            transform: translate(-8px, -8px);
+          }
+          50% {
+            transform: translate(5px, 5px);
+          }
+          90% {
+            transform: translate(5px, 5px);
+          }
+          95% {
+            transform: translate(8px, 8px);
+          }
+          100% {
+            transform: translate(-5px, -5px);
+          }
+        }
+      }
+
+      @keyframes fadeMove {
+        0% {
+          transform: translate(-5px, -5px);
+          opacity: 100%;
+        }
+        40% {
+          transform: translate(-5px, -5px);
+          opacity: 100%;
+        }
+        45% {
+          transform: translate(-9px, -8px);
+          opacity: 100%;
+        }
+        48% {
+          transform: translateX(2px);
+          opacity: 0%;
+        }
+        49% {
+          opacity: 0%;
+          transform: translateX(-5px);
+        }
+
+        50% {
+          transform: translate(5px, 5px);
+          opacity: 100%;
+        }
+        90% {
+          transform: translate(5px, 5px);
+          opacity: 100%;
+        }
+        95% {
+          transform: translate(4px, 8px);
+          opacity: 100%;
+        }
+        98% {
+          transform: translateX(10px);
+          opacity: 0%;
+        }
+        99% {
+          opacity: 0%;
+          transform: translate(-10px, -5px);
+        }
+        100% {
+          transform: translate(-5px, -5px);
+        }
+      }
+    }
+
+    .detailTitle {
+      color: $clr-primary;
+      font-size: 15px;
+      font-weight: 500;
+      margin-block-end: 0;
+    }
+
+    .detailText {
+      margin-block-end: 0;
+      color: #425466;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 25px;
+    }
+  }
+}
+
+.stripeRight {
+  position: absolute;
+  right: 0;
+  z-index: 2;
+  margin-top: 18rem;
+
+  @media screen and (max-width: 1200px) {
+    margin-top: 28rem;
+  }
+
+  @media screen and (max-width: 900px) {
+    margin-top: 27rem;
+  }
+
+  @media screen and (max-width: 600px) {
+    margin-top: 35rem;
+  }
+
+  @media screen and (max-width: 450px) {
+    margin-top: 40rem;
+  }
+
+  @media screen and (max-width: 350px) {
+    margin-top: 42rem;
+  }
+
+  .longStripe {
+    @include longStripe(#80e9ff);
+  }
+
+  .shortStripe {
+    @include shortStripe(#443aff);
+    margin-left: 3rem;
+    margin-top: -0.5rem;
+    opacity: 0.8;
+  }
+}
+
+.stripeLeft {
+  position: absolute;
+  left: 0;
+  z-index: 2;
+  margin-top: 26rem;
+
+  @media screen and (max-width: 1200px) {
+    margin-top: 33rem;
+  }
+
+  @media screen and (max-width: 900px) {
+    margin-top: 32rem;
+  }
+
+  @media screen and (max-width: 600px) {
+    margin-top: 40rem;
+  }
+
+  @media screen and (max-width: 450px) {
+    margin-top: 43rem;
+  }
+
+  @media screen and (max-width: 350px) {
+    margin-top: 45rem;
+  }
+
+  .longStripe {
+    @include longStripe(#443aff);
+    opacity: 0.7;
+  }
+
+  .shortStripe {
+    @include shortStripe(#80e9ff);
+    margin-left: 5rem;
+    margin-bottom: -1rem;
+
+    @media screen and (max-width: 450px) {
+      margin-left: 1rem;
+    }
+  }
+}
+
+.contactBtn {
+  @include secondaryBtn($clr-secondary);
+  padding-left: 0;
+
+  &:hover {
+    color: $clr-primary;
+  }
+
+  &:hover > .arrow {
+    color: $clr-primary;
+    border-right: 2px solid $clr-primary;
+    border-bottom: 2px solid $clr-primary;
+  }
+}
+
+.contactBtn > .arrow {
+  @include arrow($clr-secondary);
+}

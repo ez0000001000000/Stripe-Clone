@@ -1,0 +1,979 @@
+@use "./mixin.scss" as *;
+
+.paymentsContainer {
+  background-color: #f6f9fc;
+  height: 200vh;
+
+  @media screen and (max-width: 900px) {
+    height: 140vh;
+  }
+
+  @media screen and (max-width: 600px) {
+    height: 200vh;
+  }
+
+  @media screen and (max-width: 420px) {
+    height: 210vh;
+  }
+
+  .paymentsTextContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 0 17rem;
+    padding-top: 6rem;
+
+    @media screen and (max-width: 900px) {
+      margin: 0 2rem;
+    }
+    @media screen and (max-width: 600px) {
+      margin: 0 1rem;
+    }
+
+    .heading {
+      color: $clr-secondary;
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .title {
+      color: $clr-primary;
+      font-size: 40px;
+      font-weight: 600;
+      letter-spacing: -2px;
+
+      @media screen and (max-width: 600px) {
+        font-size: 35px;
+      }
+
+      @media screen and (max-width: 400px) {
+        font-size: 28px;
+      }
+    }
+
+    .textContainer {
+      display: flex;
+      gap: 3rem;
+
+      @media screen and (max-width: 600px) {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .text {
+        font-size: 18px;
+        font-weight: 500;
+        color: #425466;
+        line-height: 30px;
+        letter-spacing: -1px;
+
+        @media screen and (max-width: 600px) {
+          font-size: 17px;
+        }
+
+        @media screen and (max-width: 600px) {
+          font-size: 18px;
+        }
+
+        .link {
+          color: $clr-secondary;
+          font-weight: 600;
+          transition: 0.2s;
+
+          &:hover {
+            color: $clr-primary;
+            transition: 0.2s;
+          }
+        }
+      }
+    }
+
+    .btn {
+      @include btn($clr-secondary);
+      width: fit-content;
+
+      &:hover {
+        background-color: $clr-primary;
+        color: #fff;
+      }
+    }
+
+    .btn > .arrow {
+      @include arrow(#fff);
+    }
+  }
+
+  .paymentsFiguresContainer {
+    position: relative;
+    display: grid;
+    grid-gap: 2rem;
+    pointer-events: none;
+    grid: auto/repeat(3, 1fr);
+    margin: 5rem 16rem;
+    z-index: 2;
+
+    @media screen and (max-width: 900px) {
+      margin: 0;
+      scale: 0.8;
+      margin-left: -5rem;
+    }
+
+    @media screen and (max-width: 600px) {
+      margin: 0;
+      scale: 0.6;
+      margin-left: -6rem;
+    }
+
+    @media screen and (max-width: 420px) {
+      margin: 0;
+      scale: 0.35;
+      margin-left: -11rem;
+      margin-top: -10rem;
+    }
+
+    .visaCardContainer {
+      position: relative;
+      padding: 10px 20px;
+      height: 200px;
+      width: 320px;
+      border-radius: 16px;
+      background-color: #09cbcb;
+      box-shadow: 0 50px 100px -20px rgb(50 50 93 / 25%),
+        0 30px 60px -30px rgb(0 0 0 / 30%);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      animation: changeColor 30s infinite;
+
+      .visaCardTop {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .commutifiHeading {
+          font-size: 18px;
+          color: #fff;
+          font-weight: 500;
+          margin: 0;
+          margin-top: 0.5rem;
+
+          animation: commutifiFade 30s infinite;
+        }
+
+        .zestfulHeading {
+          position: absolute;
+          font-size: 18px;
+          color: #fff;
+          font-weight: 500;
+          margin: 0;
+          margin-top: 0.5rem;
+
+          animation: zestfulFade 30s infinite;
+        }
+
+        .postmatesHeading {
+          position: absolute;
+          font-size: 18px;
+          color: #fff;
+          font-weight: 500;
+          margin: 0;
+          margin-top: 0.5rem;
+
+          animation: postmatesFade 30s infinite;
+        }
+      }
+
+      .visaCardMiddle {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 2rem;
+
+        .chip {
+          height: 45px;
+          z-index: 1;
+        }
+
+        .commutifiImage {
+          height: 100px;
+          animation: commutifiFade 30s infinite;
+        }
+
+        .zestfulImage {
+          position: absolute;
+          margin-left: 85px;
+          height: 100px;
+          animation: zestfulFade 30s infinite;
+        }
+
+        .postmatesImage {
+          position: absolute;
+          width: -webkit-fill-available;
+          margin-left: 10px;
+          height: 100px;
+          animation: postmatesFade 30s infinite;
+        }
+      }
+
+      .visaCardBottom {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        .commutifiName {
+          color: #fff;
+          font-size: 13px;
+          font-weight: 600;
+          margin: 0;
+
+          animation: commutifiFade 30s infinite;
+        }
+
+        .zestfulName {
+          position: absolute;
+          color: #fff;
+          font-size: 13px;
+          font-weight: 600;
+          margin: 0;
+
+          animation: zestfulFade 30s infinite;
+        }
+
+        .postmatesName {
+          position: absolute;
+          color: #fff;
+          font-size: 13px;
+          font-weight: 600;
+          margin: 0;
+
+          animation: postmatesFade 30s infinite;
+        }
+
+        .visaLogo {
+          height: 38px;
+        }
+      }
+    }
+
+    @keyframes changeColor {
+      0% {
+        background-color: #09cbcb;
+      }
+
+      30% {
+        background-color: #09cbcb;
+      }
+      33% {
+        background-color: #ffc025;
+      }
+
+      63% {
+        background-color: #ffc025;
+      }
+      66% {
+        background-color: #000000;
+      }
+      96% {
+        background-color: #000000;
+      }
+      100% {
+        background-color: #09cbcb;
+      }
+    }
+    @keyframes commutifiFade {
+      0% {
+        opacity: 100%;
+      }
+
+      30% {
+        opacity: 100%;
+      }
+      33% {
+        opacity: 0%;
+      }
+
+      96% {
+        opacity: 0%;
+      }
+      100% {
+        opacity: 100%;
+      }
+    }
+
+    @keyframes zestfulFade {
+      0% {
+        opacity: 0%;
+      }
+
+      30% {
+        opacity: 0%;
+      }
+      33% {
+        opacity: 100%;
+      }
+
+      63% {
+        opacity: 100%;
+      }
+      66% {
+        opacity: 0%;
+      }
+      100% {
+        opacity: 0%;
+      }
+    }
+
+    @keyframes postmatesFade {
+      0% {
+        opacity: 0%;
+      }
+
+      63% {
+        opacity: 0%;
+      }
+      66% {
+        opacity: 100%;
+      }
+      96% {
+        opacity: 100%;
+      }
+      100% {
+        opacity: 0%;
+      }
+    }
+
+    .invoiceContainer {
+      overflow: hidden;
+      height: 370px;
+      width: 500px;
+      position: relative;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 50px 100px -20px rgb(50 50 93 / 25%),
+        0 30px 60px -30px rgb(0 0 0 / 30%);
+
+      .invoiceBG {
+        position: relative;
+        background-color: rgb(97, 31, 105);
+        height: 67%;
+        transform-origin: left;
+        transform: skewY(168deg);
+        animation: bgSwitch 30s infinite;
+      }
+
+      .invoiceCard {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+        margin-top: -12rem;
+        margin-left: 5rem;
+        background-color: white;
+        border-radius: 6px;
+        width: 340px;
+        height: 250px;
+        place-self: center;
+        box-shadow: 0 13px 27px -5px rgb(50 50 93 / 25%),
+          0 8px 16px -8px rgb(0 0 0 / 30%);
+
+        .logoContainer {
+          background-color: #fff;
+          border-radius: 50px;
+          padding: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 50px;
+          height: 50px;
+          margin-top: -1rem;
+          box-shadow: 0 0 5px -1px rgb(50 50 93 / 25%),
+            0 0 3px -1px rgb(0 0 0 / 30%);
+
+          .slackLogo {
+            height: 25px;
+            animation: slackFade 30s infinite;
+          }
+          .oneMedLogo {
+            position: absolute;
+            height: 25px;
+            animation: oneMedFade 30s infinite;
+          }
+          .udacityLogo {
+            position: absolute;
+            height: 25px;
+            animation: udacityFade 30s infinite;
+          }
+        }
+
+        .slackHeading {
+          font-size: 12px;
+          font-weight: 500;
+          color: $clr-primary;
+          margin: 0;
+          animation: slackFade 30s infinite;
+        }
+
+        .oneMedHeading {
+          position: absolute;
+          font-size: 12px;
+          font-weight: 500;
+          color: $clr-primary;
+          margin: 0;
+          margin-top: 2.5rem;
+          animation: oneMedFade 30s infinite;
+        }
+        .udacityHeading {
+          position: absolute;
+          font-size: 12px;
+          font-weight: 500;
+          color: $clr-primary;
+          margin: 0;
+          margin-top: 2.5rem;
+          animation: udacityFade 30s infinite;
+        }
+
+        .invoiceName {
+          margin: 0;
+          font-size: 11px;
+          font-weight: 400;
+          color: $clr-primary;
+        }
+
+        @keyframes slackFade {
+          0% {
+            margin-left: 0px;
+            opacity: 100%;
+          }
+
+          30% {
+            margin-left: 0px;
+            opacity: 100%;
+          }
+          33% {
+            margin-left: 50px;
+            opacity: 0%;
+          }
+
+          96% {
+            margin-left: -50px;
+            opacity: 0%;
+          }
+          100% {
+            margin-left: 0px;
+            opacity: 100%;
+          }
+        }
+
+        @keyframes oneMedFade {
+          0% {
+            margin-left: -50px;
+            opacity: 0%;
+          }
+
+          30% {
+            margin-left: -50px;
+            opacity: 0%;
+          }
+          33% {
+            margin-left: 0px;
+            opacity: 100%;
+          }
+
+          63% {
+            margin-left: 0px;
+            opacity: 100%;
+          }
+          66% {
+            margin-left: 50px;
+            opacity: 0%;
+          }
+          100% {
+            opacity: 0%;
+          }
+        }
+
+        @keyframes udacityFade {
+          0% {
+            margin-left: -50px;
+            opacity: 0%;
+          }
+
+          63% {
+            margin-left: -50px;
+            opacity: 0%;
+          }
+          66% {
+            margin-left: 0;
+            opacity: 100%;
+          }
+          96% {
+            margin-left: 0px;
+            opacity: 100%;
+          }
+          100% {
+            margin-left: 50px;
+            opacity: 0%;
+          }
+        }
+
+        .bottomSection {
+          background: #f6f9fc;
+          padding: 16px 40px 40px;
+          width: -webkit-fill-available;
+          height: -webkit-fill-available;
+          border-bottom-left-radius: 10px;
+          border-bottom-right-radius: 10px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          box-shadow: 0 13px 27px -5px rgb(50 50 93 / 25%),
+            0 8px 16px -8px rgb(0 0 0 / 30%);
+
+          .slackAmount {
+            font-size: 12px;
+            font-weight: 500;
+            color: $clr-primary;
+            margin: 0;
+            animation: slackFade 30s infinite;
+          }
+          .oneMedAmount {
+            font-size: 12px;
+            font-weight: 500;
+            color: $clr-primary;
+            margin: 0;
+            animation: oneMedFade 30s infinite;
+          }
+          .udacityAmount {
+            position: absolute;
+            font-size: 12px;
+            font-weight: 500;
+            color: $clr-primary;
+            margin: 0;
+            animation: udacityFade 30s infinite;
+          }
+
+          .inputContainer {
+            display: flex;
+            gap: 1rem;
+            width: -webkit-fill-available;
+            margin-top: 0.5rem;
+          }
+
+          .input {
+            align-items: center;
+            width: -webkit-fill-available;
+            font-size: 12px;
+            min-height: 24px;
+            line-height: 24px;
+            margin: 6px 0 16px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: flex-start;
+            gap: 0.4rem;
+            padding: 0px 5px;
+
+            box-shadow: 0 0 0 1px rgb(50 50 93 / 7%),
+              0 2px 3px -1px rgb(50 50 93 / 12%),
+              0 1px 3px -1px rgb(0 0 0 / 12%);
+
+            .inputIcon {
+              opacity: 0.2;
+            }
+          }
+
+          .active {
+            color: rgb(97, 31, 105);
+            border-style: solid;
+            font-weight: 700;
+
+            animation: activeSwitch 30s infinite;
+          }
+
+          @keyframes activeSwitch {
+            0% {
+              color: rgb(97, 31, 105);
+            }
+            30% {
+              color: rgb(97, 31, 105);
+            }
+            33% {
+              color: rgb(0, 84, 80);
+            }
+            63% {
+              color: rgb(0, 84, 80);
+            }
+            66% {
+              color: rgb(3, 179, 228);
+            }
+            96% {
+              color: rgb(3, 179, 228);
+            }
+            100% {
+              color: rgb(97, 31, 105);
+            }
+          }
+
+          @keyframes bgSwitch {
+            0% {
+              background-color: rgb(97, 31, 105);
+            }
+            30% {
+              background-color: rgb(97, 31, 105);
+            }
+            33% {
+              background-color: rgb(0, 84, 80);
+            }
+            63% {
+              background-color: rgb(0, 84, 80);
+            }
+            66% {
+              background-color: rgb(3, 179, 228);
+            }
+            96% {
+              background-color: rgb(3, 179, 228);
+            }
+            100% {
+              background-color: rgb(97, 31, 105);
+            }
+          }
+
+          .payButton {
+            border-radius: 4px;
+            padding: 4px 0;
+            text-align: center;
+            font-weight: 500;
+            font-size: 12px;
+            color: #fff;
+            background-color: rgb(97, 31, 105);
+            box-shadow: 0 2px 4px -1px rgb(50 50 93 / 25%),
+              0 1px 3px -1px rgb(0 0 0 / 30%);
+            width: -webkit-fill-available;
+            animation: bgSwitch 30s infinite;
+          }
+        }
+      }
+    }
+
+    .deviceContainer {
+      position: relative;
+      margin-top: -9rem;
+      .deviceArrow {
+        position: absolute;
+        animation: deviceArrow 3s infinite;
+        z-index: 2;
+        filter: invert(1);
+        margin-bottom: -5rem;
+        margin-left: 8rem;
+      }
+      .device {
+        height: 520px;
+        filter: drop-shadow(1px 12px 10px #26394d9c);
+      }
+
+      @keyframes deviceArrow {
+        0% {
+          opacity: 100%;
+          margin-top: 4rem;
+        }
+        50% {
+          opacity: 10%;
+          margin-top: 3rem;
+        }
+        100% {
+          opacity: 100%;
+          margin-top: 4rem;
+        }
+      }
+    }
+    .phoneContainer {
+      z-index: 1;
+      overflow: hidden;
+      position: relative;
+      margin-top: -10rem;
+      margin-left: 30px;
+      left: 10px;
+      box-shadow: 0 50px 100px -20px rgb(50 50 93 / 25%),
+        0 30px 60px -30px rgb(0 0 0 / 30%),
+        inset 0 -2px 6px 0 rgb(10 37 64 / 35%);
+      background: #f6f9fc;
+      border-radius: 36px;
+      width: 265px;
+      height: 533px;
+      padding: 8px;
+
+      .phoneBackground {
+        background: #fff;
+        height: 100%;
+        border-radius: 33px;
+        padding: 24px 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .awayScreen {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: -webkit-fill-available;
+          .awayLogo {
+            height: 30px;
+            width: 90px;
+          }
+
+          .cartTextContainer {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: inherit;
+
+            .yourCart {
+              font-size: 12px;
+              font-weight: 400;
+            }
+
+            .itemCount {
+              font-size: 12px;
+              font-weight: 300;
+            }
+          }
+
+          .divider {
+            width: inherit;
+            height: 1px;
+            background-color: #e2e2e2;
+          }
+
+          .item {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+            padding: 30px 8px;
+
+            .itemImage {
+              height: 70px;
+              margin-right: 1rem;
+            }
+
+            .itemImageSmall {
+              height: 30px;
+              margin-right: 1rem;
+              margin-bottom: 2rem;
+            }
+
+            .itemText {
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              gap: 0.5rem;
+              .itemName {
+                font-size: 10px;
+                margin: 0;
+                font-weight: 600;
+              }
+
+              .itemDescription {
+                font-size: 10px;
+                font-weight: 500;
+                margin: 0;
+              }
+
+              .itemNumber {
+                display: flex;
+                border-style: solid;
+                gap: 0.2rem;
+                justify-content: space-around;
+                padding: 5px 15px;
+                border-width: 2px;
+                align-items: center;
+                p {
+                  margin: 0;
+                }
+              }
+            }
+
+            .price {
+              font-size: 12px;
+              font-weight: 500;
+            }
+          }
+
+          .bottomSection {
+            width: inherit;
+
+            margin-top: 3rem;
+
+            .phoneButton {
+              margin-top: 0.5rem;
+              border-radius: 4px;
+              padding: 4px 0;
+              text-align: center;
+              font-weight: 500;
+              font-size: 12px;
+              color: #fff;
+              background: $clr-primary;
+              box-shadow: 0 2px 4px -1px rgb(50 50 93 / 25%),
+                0 1px 3px -1px rgb(0 0 0 / 30%);
+              width: -webkit-fill-available;
+
+              .applePayLogo {
+                height: 12px;
+                filter: invert(1);
+                margin: 0 auto;
+              }
+            }
+
+            .buttonClick {
+              animation: buttonClick 14s infinite;
+            }
+          }
+        }
+      }
+
+      .darkenScreen {
+        background: #000000;
+        height: -webkit-fill-available;
+        width: 30rem;
+        position: absolute;
+        opacity: 0.2;
+        margin-top: -35rem;
+        margin-left: -1rem;
+
+        animation: darkenScreen 14s infinite;
+      }
+
+      .payScreen {
+        background: #fff;
+        border-radius: 10px;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        margin-top: -20rem;
+        height: 20rem;
+        position: relative;
+        width: -webkit-fill-available;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+
+        animation: payScreen 14s infinite;
+
+        .topSection {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0px 15px;
+
+          .applePayLogo {
+            height: 15px;
+          }
+
+          .cancel {
+            font-size: 14px;
+            font-weight: 500;
+            color: #2a69fd;
+          }
+        }
+
+        .divider {
+          width: inherit;
+          height: 1px;
+          background-color: #e2e2e2;
+        }
+
+        .payField {
+          display: flex;
+          justify-content: space-around;
+          padding: 5px;
+          align-items: center;
+
+          .visaCard {
+            height: 20px;
+          }
+
+          .payFieldText {
+            font-size: 10px;
+            font-weight: 500;
+            color: #6a7b92;
+          }
+        }
+
+        .faceID {
+          height: 25px;
+          width: 25px;
+          align-self: center;
+        }
+      }
+
+      @keyframes darkenScreen {
+        0% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 0;
+        }
+        55% {
+          opacity: 0.2;
+        }
+        95% {
+          opacity: 0.2;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      @keyframes payScreen {
+        0% {
+          margin-top: 1rem;
+        }
+        50% {
+          margin-top: 1rem;
+        }
+        55% {
+          margin-top: -20rem;
+        }
+        95% {
+          margin-top: -20rem;
+        }
+        100% {
+          margin-top: 1rem;
+        }
+      }
+
+      @keyframes buttonClick {
+        0% {
+          scale: 1;
+        }
+        45% {
+          scale: 1;
+        }
+        48% {
+          scale: 0.95;
+        }
+        50% {
+          scale: 1;
+        }
+        100% {
+          scale: 1;
+        }
+      }
+    }
+
+    .graphContainer {
+      position: relative;
+      margin-top: -28rem;
+      min-width: 100px;
+      min-height: 72px;
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 50px 100px -20px rgba(50, 50, 93, 0.25),
+        0 30px 60px -30px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      grid-area: 4/2/4/4;
+      overflow: hidden;
+    }
+  }
+}

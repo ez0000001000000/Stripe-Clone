@@ -1,0 +1,275 @@
+@use "./mixin.scss" as *;
+
+.hideMenu {
+  opacity: 0% !important;
+  display: none;
+  z-index: -1 !important;
+  height: 10vh;
+  width: 30vw;
+}
+
+.hideSubMenu {
+  opacity: 0% !important;
+  z-index: -5 !important;
+  position: absolute !important;
+}
+
+.menuArrow {
+  position: absolute;
+  background-color: #fff;
+  top: 65px !important;
+  left: 50%;
+  opacity: 0%;
+  margin: 0 0 0 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 3px 0 0 0;
+  z-index: 1;
+  transform: rotate(-135deg);
+  transition: 0.3s ease-in-out;
+}
+
+.arrowProducts {
+  translate: -240px;
+  background-color: #f0f3f6;
+}
+
+.arrowSolutions {
+  translate: -140px;
+}
+
+.arrowDevelopers {
+  translate: -30px;
+}
+
+.arrowResources {
+  translate: 100px;
+}
+
+.menuShift {
+  left: 33% !important;
+}
+
+.showContent {
+  opacity: 100% !important;
+  top: 0 !important;
+}
+
+.showArrow {
+  opacity: 100% !important;
+}
+
+.activeTab {
+  background-color: #fff;
+}
+
+.navbarMenuContainer {
+  background-color: white;
+  display: flex;
+  border-radius: 10px;
+  z-index: 2;
+  position: absolute;
+  opacity: 100%;
+  left: 25%;
+  transition: 0.3s ease-in-out;
+  box-shadow: -3px -3px 5px rgb(82 95 127 / 4%);
+  overflow: hidden;
+
+  .productsMenuContainer {
+    display: flex;
+    flex-direction: row;
+    background-color: #f0f3f6;
+    border-radius: 10px;
+    opacity: 100%;
+    overflow: hidden;
+
+    .productsTabs {
+      display: flex;
+      flex-direction: column;
+
+      .productsTab {
+        height: 6rem;
+        width: 15rem;
+        padding: 20px;
+        border-radius: 10px;
+        &:hover {
+          background-color: #fff;
+        }
+
+        .tabHeading {
+          font-size: 14px;
+          color: $clr-primary;
+          font-weight: 500;
+          margin-top: 0;
+        }
+
+        .tabText {
+          font-size: 12px;
+          font-weight: 400;
+          color: #4f5b76;
+          margin: 0;
+        }
+      }
+    }
+
+    .productsMenu {
+      background-color: #fff;
+      width: 30vw;
+      height: 20rem;
+      overflow: hidden;
+      border-radius: 10px;
+
+      .content {
+        display: grid;
+        grid: auto/repeat(2, 1fr);
+        column-gap: 24px;
+        padding: 30px 20px;
+        opacity: 0%;
+        position: absolute;
+        top: -100%;
+        transition: 0.3s ease-in-out;
+        overflow: hidden;
+
+        .contentList {
+          display: flex;
+          flex-direction: column;
+          padding: 0;
+          margin: 0;
+          gap: 1.2rem;
+
+          .contentLink {
+            cursor: pointer;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 0.3rem;
+
+            .contentIcon {
+              height: 30px;
+              width: 30px;
+            }
+
+            .contentHeading {
+              font-size: 15px;
+              font-weight: 500;
+              margin: 0;
+              color: $clr-primary;
+            }
+
+            .contentText {
+              font-size: 12px;
+              font-weight: 400;
+              margin: 0;
+              margin-top: 0.3rem;
+              color: $clr-primary;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .subMenu {
+    opacity: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s ease-in-out;
+    position: initial;
+    border-radius: 10px;
+    overflow: hidden;
+
+    .subSection {
+      padding: 30px;
+      display: inline-grid;
+      grid: auto/repeat(2, 1fr);
+      gap: 12px 32px;
+
+      .subMenuHeading {
+        font-size: 14px;
+        color: #727f96;
+        font-weight: 500;
+        grid-column: span 2;
+      }
+
+      .subMenuList {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+
+        .subMenuLink {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-start;
+          gap: 0.3rem;
+          cursor: pointer;
+
+          &:hover {
+            .subLinkText {
+              font-weight: 800;
+            }
+          }
+
+          .subLinkIcon {
+            height: 20px;
+            width: 20px;
+          }
+
+          .subLinkText {
+            font-size: 14px;
+            font-weight: 600;
+            color: $clr-primary;
+          }
+
+          .subTextContainer {
+            .subLinkText {
+              margin: 0;
+              font-size: 14px;
+              font-weight: 600;
+              color: $clr-primary;
+              margin-top: 0.6rem;
+            }
+
+            .secondaryText {
+              margin: 0;
+              margin-top: 0.5rem;
+              margin-bottom: -0.5rem;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+
+      .secondaryList {
+        list-style: none;
+        margin: 0;
+        margin-top: 1.5rem;
+        padding: 0;
+        padding-left: 1.5rem;
+        .secondaryListHeading {
+          font-size: 14px;
+          font-weight: 500;
+          color: #727f96;
+        }
+        .secondaryLink {
+          .secondaryLinkText {
+            font-size: 14px;
+            color: #727f96;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+
+    .bottomSection {
+      background-color: #f6f9fb;
+      border-radius: 10px;
+    }
+  }
+}
+
+.spanTwo {
+  grid-column: span 2;
+}

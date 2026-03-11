@@ -1,0 +1,284 @@
+@use "./mixin.scss" as *;
+
+.mobileMenuContainer {
+  background-color: #fff;
+  z-index: 2;
+  position: absolute;
+  top: -110%;
+  opacity: 0;
+  left: 0;
+  margin: 1rem 1rem;
+  box-shadow: 0 50px 100px -20px rgba(50, 50, 93, 0.25),
+    0 30px 60px -30px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  width: -webkit-fill-available;
+  transition: 0.5s ease-in-out;
+  overflow: hidden;
+  height: 125vh;
+
+  @media screen and (min-width: 600px) {
+    right: 0;
+    left: inherit;
+    width: 60vw;
+    height: 90vh;
+  }
+
+  @media screen and (max-width: 600px) {
+    height: 105vh;
+    top: -150%;
+  }
+
+  @media screen and (max-width: 400px) {
+    height: 135vh;
+  }
+
+  .mobileMenuTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+
+    .mobileMenuLogo {
+      width: 60px;
+      height: 25px;
+      transition: 0.2s ease-in-out;
+    }
+
+    .backButton {
+      display: flex;
+      align-items: center;
+      left: 5%;
+      transition: 0.2s ease-in-out;
+      position: absolute;
+      .backText {
+        padding-left: 3px;
+        font-size: 16px;
+        color: $clr-secondary;
+      }
+    }
+  }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      #cfcfcf,
+      #cfcfcf 50%,
+      transparent 0,
+      transparent
+    );
+    background-size: 8px 1px;
+  }
+
+  .mobileTabsContainer {
+    position: absolute;
+    width: -webkit-fill-available;
+    left: 0;
+    opacity: 100%;
+    transition: 0.3s ease-in-out;
+    .productsContainer {
+      background-color: #f6f9fb;
+
+      .menuTitle {
+        margin-block-start: 0;
+        margin-block-end: 0;
+        padding: 16px;
+        color: #3f4b66;
+        font-size: 18px;
+        font-weight: 600;
+      }
+
+      .productsList {
+        list-style: none;
+        padding: 16px;
+        margin: 0;
+
+        .productsListItem {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 6rem;
+          padding-bottom: 1rem;
+
+          .listItemTextContainer {
+            display: flex;
+            flex-direction: column;
+
+            .listItemHeading {
+              color: $clr-primary;
+              margin: 0;
+              font-size: 16px;
+              font-weight: 600;
+            }
+
+            .listItemText {
+              margin: 0;
+              font-size: 15px;
+              color: #727f96;
+              padding-top: 5px;
+            }
+          }
+        }
+      }
+    }
+
+    .mobileLinks {
+      list-style: none;
+      padding: 16px 0px;
+      padding-right: 16px;
+      margin: 0;
+
+      .mobileLink {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 0;
+
+        .mobileLinkHeading {
+          margin-block-start: 0;
+          margin-block-end: 0;
+          padding: 16px;
+          color: #3f4b66;
+          font-size: 18px;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  .subMenu {
+    position: absolute;
+    left: 0;
+    opacity: 100%;
+    transition: 0.3s ease-in-out;
+    padding: 20px;
+    width: -webkit-fill-available;
+
+    .subMenuContainer {
+      .subMenuTitle {
+        font-size: 14px;
+        font-weight: 400;
+        color: #727f96;
+      }
+
+      .subMenuTitleSecondary {
+        font-size: 14px;
+        font-weight: 400;
+        color: #727f96;
+        padding-left: 40px;
+      }
+
+      .subMenuList {
+        list-style: none;
+        padding-inline-start: 0;
+        margin: 0;
+        margin-top: 2rem;
+
+        .subMenuItem {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 1rem;
+          margin-bottom: 1.5rem;
+
+          .subLinkIcon {
+            height: 35px;
+            width: 35px;
+          }
+
+          .subLinkIconSmall {
+            height: 25px;
+            width: 25px;
+          }
+
+          .subLinkTextContainer {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            gap: 0.3rem;
+
+            .subLinkHeading {
+              font-size: 17px;
+              font-weight: 500;
+              margin: 0;
+            }
+
+            .subLinkText {
+              font-size: 15px;
+              font-weight: 300;
+              margin: 0;
+            }
+
+            .subLinkSecondary {
+              font-size: 16px;
+              font-weight: 400;
+              color: #727f96;
+              margin: 0;
+              padding-left: 40px;
+            }
+          }
+        }
+      }
+      .subMenuDivider {
+        margin: 1rem 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          #cfcfcf,
+          #cfcfcf 50%,
+          transparent 0,
+          transparent
+        );
+        background-size: 8px 1px;
+      }
+    }
+  }
+
+  .mobileMenuButtonContainer {
+    display: flex;
+    justify-content: center;
+    background-color: #f6f9fb;
+    border-radius: 4px;
+    padding: 20px;
+    margin-top: 10rem;
+    position: absolute;
+    width: -webkit-fill-available;
+    bottom: 0;
+
+    .mobileMenuBtn {
+      @include btn($clr-secondary);
+      z-index: 1;
+
+      &:hover {
+        background-color: hsla(0, 0%, 100%, 0.4);
+        color: #fff;
+      }
+    }
+
+    .mobileMenuBtn > .arrow {
+      @include arrow(#fff);
+    }
+  }
+}
+
+.mobileMenuOpen {
+  opacity: 100%;
+  top: 0;
+}
+
+.hideElement {
+  opacity: 0 !important;
+  left: 10% !important;
+}
+
+.hideMenu {
+  opacity: 0 !important;
+  left: -50% !important;
+  width: auto !important;
+}
+
+.hideSubMenu {
+  opacity: 0 !important;
+  left: 100% !important;
+}

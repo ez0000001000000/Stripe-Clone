@@ -1,0 +1,695 @@
+@use "./mixin.scss" as *;
+
+.navContainer {
+  margin: 0 17rem;
+  z-index: 1;
+
+  @media screen and (max-width: 900px) {
+    margin: 2rem 2rem;
+  }
+
+  @media screen and (max-width: 600px) {
+    margin: 2rem 1rem;
+  }
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .logo {
+      width: 60px;
+      height: 25px;
+      cursor: pointer;
+      transition: 0.2s;
+      z-index: 1;
+
+      &:hover {
+        opacity: 0.7;
+        transition: 0.2s;
+      }
+    }
+
+    .navLinks {
+      @media screen and (max-width: 900px) {
+        display: none;
+      }
+      .navList {
+        list-style: none;
+        display: flex;
+        padding-inline-start: 0px;
+        .navLink {
+          font-size: 15px;
+          font-weight: 600;
+          padding: 10px 20px;
+          color: #fff;
+          cursor: default;
+          z-index: 1;
+          transition: 0.2s;
+
+          &:hover {
+            opacity: 0.6;
+            transition: 0.2s;
+          }
+        }
+      }
+    }
+
+    .navBtn {
+      @include btn(hsla(0, 0%, 100%, 0.2));
+      z-index: 1;
+
+      @media screen and (max-width: 900px) {
+        display: none;
+      }
+
+      &:hover {
+        background-color: hsla(0, 0%, 100%, 0.4);
+        color: #fff;
+      }
+    }
+
+    .navBtn > .arrow {
+      @include arrow(#fff);
+    }
+
+    .mobileButtonContainer {
+      z-index: 1;
+      background-color: hsla(0, 0%, 100%, 0.2);
+      width: 50px;
+      border-radius: 40px;
+      padding: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @media screen and (min-width: 900px) {
+        display: none;
+      }
+
+      .mobileMenuIcon {
+        filter: invert(1);
+      }
+    }
+  }
+}
+
+.gradient {
+  position: absolute;
+  margin-top: -20rem;
+  height: 93vh;
+  width: 100%;
+  z-index: 0;
+  transform: skewY(-13deg);
+
+  @media screen and (max-width: 900px) {
+    height: 50vh;
+  }
+
+  @media screen and (max-width: 400px) {
+    height: 65vh;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.lineSection {
+  @include lineSection;
+
+  .line:first-child {
+    @include line(0);
+  }
+
+  .line:nth-child(2) {
+    @include line(calc(25% + 5px));
+  }
+
+  .line:nth-child(3) {
+    @include line(calc(50% - 1px));
+  }
+
+  .line:nth-child(4) {
+    @include line(calc(75% - 6px));
+  }
+
+  .line:nth-child(5) {
+    @include line(100%);
+  }
+}
+
+.heroContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+
+  .heroTextContainer {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    .titleContainer {
+      position: relative;
+      width: max-content;
+      margin-block-end: 0;
+      .title {
+        font-size: 90px;
+        font-weight: 700;
+        color: #343434;
+        z-index: 1;
+        letter-spacing: -3px;
+        mix-blend-mode: color-burn;
+        margin-bottom: 0;
+
+        @media screen and (max-width: 900px) {
+          font-size: 70px;
+        }
+
+        @media screen and (max-width: 600px) {
+          font-size: 50px;
+        }
+
+        @media screen and (max-width: 400px) {
+          font-size: 45px;
+          margin-top: 0;
+        }
+      }
+
+      .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-block-start: 0.67em;
+        color: #111;
+        mix-blend-mode: revert;
+        z-index: 1;
+        opacity: 0.3;
+
+        @media screen and (max-width: 400px) {
+          margin-block-start: 0;
+        }
+      }
+    }
+
+    .text {
+      font-size: 20px;
+      color: #425466;
+      z-index: 1;
+
+      @media screen and (max-width: 600px) {
+        font-size: 15px;
+      }
+    }
+
+    .buttonContainer {
+      display: flex;
+
+      .startBtn {
+        @include btn($clr-primary);
+
+        &:hover {
+          opacity: 0.6;
+          color: #fff;
+        }
+      }
+
+      .startBtn > .arrow {
+        @include arrow(#fff);
+      }
+
+      .contactBtn {
+        @include secondaryBtn($clr-primary);
+
+        &:hover {
+          opacity: 0.6;
+        }
+      }
+
+      .contactBtn > .arrow {
+        @include arrow($clr-primary);
+      }
+    }
+  }
+
+  .heroFigureContainer {
+    z-index: 0;
+    margin-top: 3rem;
+    display: flex;
+
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
+
+    .phoneContainer {
+      z-index: 1;
+      position: relative;
+      margin-top: 60px;
+      margin-left: 10px;
+      left: 10px;
+      box-shadow: 0 50px 100px -20px rgb(50 50 93 / 25%),
+        0 30px 60px -30px rgb(0 0 0 / 30%),
+        inset 0 -2px 6px 0 rgb(10 37 64 / 35%);
+      background: #f6f9fc;
+      border-radius: 36px;
+      width: 265px;
+      height: 533px;
+      padding: 8px;
+
+      .phoneBackground {
+        background: #fff;
+        height: 100%;
+        border-radius: 33px;
+        padding: 24px 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .cardsImage {
+          height: 12vh;
+          justify-self: center;
+          width: max-content;
+
+          @media screen and (max-width: 900px) {
+            height: 8vh;
+          }
+        }
+
+        .description {
+          margin: 0;
+          font-size: 11px;
+          margin-top: 15px;
+          text-align: center;
+          color: $clr-primary;
+          font-weight: 600;
+        }
+
+        .price {
+          margin: 0;
+          font-size: 11px;
+          margin-bottom: 15px;
+          text-align: center;
+          color: $clr-primary;
+          font-weight: 400;
+        }
+
+        .phoneButton {
+          border-radius: 4px;
+          padding: 4px 0;
+          text-align: center;
+          font-weight: 500;
+          font-size: 12px;
+          color: #fff;
+          background: $clr-primary;
+          box-shadow: 0 2px 4px -1px rgb(50 50 93 / 25%),
+            0 1px 3px -1px rgb(0 0 0 / 30%);
+          width: -webkit-fill-available;
+
+          .applePayLogo {
+            height: 12px;
+            filter: invert(1);
+            margin: 0 auto;
+          }
+        }
+
+        .paySeperator {
+          background: linear-gradient(#e6ebf1, #e6ebf1) no-repeat 0 50%/100% 1px;
+          margin: 16px 0 12px;
+          text-align: center;
+          width: -webkit-fill-available;
+          .payText {
+            display: inline;
+            padding: 0 6px;
+            background: #fff;
+            font-size: 11px;
+            font-weight: 400;
+            color: $clr-primary;
+          }
+        }
+
+        .payInfoContainer {
+          width: -webkit-fill-available;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          .payInfoHeading {
+            font-size: 11px;
+            font-weight: 400;
+            margin: 0;
+          }
+
+          .payInput {
+            align-items: center;
+            width: -webkit-fill-available;
+
+            min-height: 24px;
+            line-height: 24px;
+            margin: 6px 0 16px;
+            border-radius: 4px;
+
+            box-shadow: 0 0 0 1px rgb(50 50 93 / 7%),
+              0 2px 3px -1px rgb(50 50 93 / 12%),
+              0 1px 3px -1px rgb(0 0 0 / 12%);
+
+            .subInput {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 0px 5px;
+
+              .inputText {
+                color: #62788d;
+                font-size: 11px;
+                margin: 0;
+                font-weight: 400;
+              }
+
+              .cardLogos {
+                display: flex;
+                gap: 0.2rem;
+
+                .card {
+                  height: 2.5vh;
+                }
+              }
+
+              .subDivider {
+                width: 1px;
+                height: 24px;
+                background-color: #e2e2e2;
+              }
+            }
+
+            .center {
+              display: flex;
+              gap: 0.5rem;
+            }
+
+            .divider {
+              width: auto;
+              height: 1px;
+              background-color: #e2e2e2;
+            }
+          }
+        }
+      }
+    }
+
+    .laptopContainer {
+      position: relative;
+      margin-left: -150px;
+      display: flex;
+      padding: 25px;
+      gap: 35px;
+      right: 0;
+      background: linear-gradient(
+        hsla(0, 0%, 100%, 0.4),
+        hsla(0, 0%, 100%, 0.3) 25%,
+        rgba(246, 249, 252, 0.3) 50%,
+        #f6f9fc 60%
+      );
+      height: 34rem;
+      width: 37rem;
+      border-radius: 8px;
+      margin-right: -2rem;
+      box-shadow: inset 0 1px 1px 0 hsl(0deg 0% 100% / 10%),
+        0 50px 100px -20px rgb(50 50 93 / 25%),
+        0 30px 60px -30px rgb(0 0 0 / 30%);
+
+      .sidebar {
+        display: flex;
+        height: 3vh;
+        align-items: center;
+        gap: 0.5rem;
+        .rocketLogo {
+          height: 3vh;
+        }
+
+        .rocketText {
+          color: #fff;
+          font-size: 12px;
+          font-weight: 600;
+        }
+
+        .rocketArrow {
+          fill: #fff;
+        }
+      }
+      .laptopContent {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        .searchBar {
+          display: flex;
+          background-color: #fff;
+          align-items: center;
+          gap: 0.5rem;
+          padding: 5px;
+          justify-content: flex-start;
+          border-radius: 5px;
+          height: 1.2rem;
+          width: 22rem;
+          box-shadow: 0 2px 4px -1px rgb(6 24 44 / 20%);
+
+          .searchText {
+            font-size: 12px;
+            color: #425466;
+          }
+        }
+
+        .graphContainer {
+          background-color: #fff;
+          border-radius: 5px;
+          box-shadow: 0 2px 4px -1px rgb(6 24 44 / 20%);
+
+          .toolbar {
+            padding: 10px;
+            .toolbarText {
+              font-size: 11px;
+              color: #425466;
+            }
+          }
+
+          .divider {
+            width: auto;
+            height: 1px;
+            background-color: #e2e2e2;
+          }
+
+          .graphInfoContainer {
+            display: flex;
+            flex-direction: row;
+
+            .graphTextContainer {
+              display: flex;
+              flex-direction: column;
+              padding: 15px;
+              gap: 0.3rem;
+
+              .graphTitle {
+                font-size: 12px;
+                margin: 0;
+                padding-right: 1rem;
+                display: flex;
+                gap: 0.2rem;
+                align-items: center;
+                color: $clr-primary;
+              }
+
+              .graphValue {
+                font-size: 15px;
+                margin: 0;
+                color: $clr-primary;
+              }
+              .graphValuePurple {
+                font-size: 15px;
+                margin: 0;
+                color: $clr-secondary;
+              }
+
+              .graphTime {
+                font-size: 12px;
+                margin: 0;
+                color: $clr-primary;
+              }
+            }
+          }
+
+          .graphLineContainer {
+            padding-left: 20px;
+          }
+
+          .bottomText {
+            display: flex;
+            padding: 15px;
+            padding-top: 1px;
+            gap: 15rem;
+            .bottomTime {
+              font-size: 12px;
+              margin: 0;
+              color: $clr-primary;
+            }
+
+            .bottomTextPurple {
+              color: $clr-secondary;
+              font-size: 12px;
+              margin: 0;
+              font-weight: 600;
+            }
+          }
+        }
+
+        .reportContainer {
+          background-color: #fff;
+          border-radius: 5px;
+          box-shadow: 0 2px 4px -1px rgb(6 24 44 / 20%);
+          height: 20rem;
+
+          .divider {
+            width: auto;
+            height: 1px;
+            background-color: #e2e2e2;
+            margin-top: 10px;
+          }
+
+          .toolbar {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            .toolbarHeading {
+              font-size: 11px;
+              color: #425466;
+            }
+            .toolbarTextContainer {
+              display: flex;
+              align-items: center;
+              position: absolute;
+              margin-top: 1.5rem;
+              gap: 0.3rem;
+
+              .toolbarText {
+                font-size: 11px;
+                margin: 0;
+                padding-right: 0.5rem;
+                display: flex;
+                gap: 0.2rem;
+                align-items: center;
+                color: $clr-primary;
+              }
+            }
+          }
+
+          .graphsContainer {
+            display: flex;
+            flex-direction: row;
+            position: absolute;
+
+            .sideDivider {
+              width: 1px;
+              height: auto;
+              background-color: #e2e2e2;
+            }
+
+            .subGraphContainer {
+              display: flex;
+              flex-direction: column;
+              padding: 15px;
+
+              .graphTextContainer {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                .graphText {
+                  font-size: 12px;
+                  margin: 0;
+                  padding-right: 0.5rem;
+                  color: $clr-primary;
+                }
+
+                .percentage {
+                  font-size: 12px;
+                  font-weight: 500;
+                  padding: 2px;
+                  border-radius: 5px;
+                  background-color: #def8dd;
+                  color: #007e53;
+                  margin: 0;
+                }
+              }
+
+              .graphValues {
+                display: flex;
+                flex-direction: row;
+                gap: 1rem;
+                align-items: baseline;
+
+                .graphValuePurple {
+                  font-size: 15px;
+                  margin: 0;
+                  color: $clr-secondary;
+                  font-weight: 400;
+                }
+
+                .graphValue {
+                  font-size: 12px;
+                  margin: 0;
+                  color: $clr-primary;
+                }
+              }
+
+              .subDivider {
+                width: auto;
+                height: 1px;
+                background-color: #e2e2e2;
+              }
+
+              .bottomTextContainer {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+
+                .bottomText {
+                  font-size: 12px;
+                  margin: 0;
+                  color: $clr-primary;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.logosContainer {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid: auto/repeat(4, 1fr);
+  row-gap: 30px;
+  margin: 7rem 0rem;
+
+  @media screen and (max-width: 600px) {
+    grid: auto/repeat(2, 1fr);
+    margin-left: -1rem;
+  }
+
+  .partnerLogo {
+    height: 4.5rem;
+
+    @media screen and (max-width: 600px) {
+      height: 3.5rem;
+    }
+  }
+}
